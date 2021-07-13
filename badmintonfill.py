@@ -1,6 +1,9 @@
 # you should do pip install selenium before import
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 ##############################################################################
 # All information needed to register are below
@@ -12,7 +15,7 @@ from selenium.webdriver.support.ui import Select
 # select the court and define courtlocation = xxx below!
 
 # MODIFY (and UNCOMMENT) below input lines before you run the programm!
-courtlocation = '//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[9]/td[4]/input'
+courtlocation = '//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[7]/td[4]/input'
 chromedriverpath = 'D:\ChromeDownloads\chromedriver_win32\chromedriver.exe'
 sex = 'male' # define sex = 'female' if needed!
 vorname = 'Yukun'
@@ -34,6 +37,14 @@ driver.get('https://buchung.hsz.rwth-aachen.de/angebote/aktueller_zeitraum/_Badm
 # driver.get('https://buchung.hsz.rwth-aachen.de/angebote/aktueller_zeitraum/_Beachvolleyballplatz_Einzelterminbuchung.html')
 # courtlocation = '//*[@id="bs_pl3FE63E5FAFBB"]/tbody/tr[10]/td[3]/input'
 # x-path location of the booking botton in https://buchung.hsz.rwth-aachen.de/angebote/aktueller_zeitraum/_Badmintoncourt_Einzelterminbuchung.html
+
+# You can turn it on 30s before booking starting, it will monitor for 30s and book when possible!
+monitortime = 30
+try:
+    element = WebDriverWait(driver, monitortime).until(EC.presence_of_element_located((By.XPATH, courtlocation)))
+except:
+    print("timeout")
+    # driver.quit() # add quit() make the except slow
 driver.find_element_by_xpath(courtlocation).click()
 
 # # important to switch your driver to NEW page opened! otherwise location fails
