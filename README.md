@@ -11,3 +11,6 @@ from https://sites.google.com/a/chromium.org/chromedriver/downloads
 and put the file path here.
 
 DO NOT USE your local chrome.exe PATH !!!
+
+
+To run the program, simply type 'python badmintonfill.py' in your terminal.
