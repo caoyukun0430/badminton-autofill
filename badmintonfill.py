@@ -15,14 +15,14 @@ from selenium.webdriver.support.ui import Select
 # MODIFY and UNCOMMENT below input lines before you run the programm!
 courtlocation = '//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[9]/td[4]/input'
 chromedriverpath = 'D:\ChromeDownloads\chromedriver_win32\chromedriver.exe'
-vorname = 'xxx'
-name = 'xxx'
+vorname = 'Yukun'
+name = 'Cao'
 address = 'xxx'
-city = 'xxx'
+city = '52074 Aachen'
 stuID = 'xxx'
 tel = 'xxx'
-email = 'xxx'
-card = 'xxx'
+email = 'xxx@xx.com'
+card = 'DExxxxxxxxxx'
 ##############################################################################
 
 # download the chromedriver.exe https://sites.google.com/a/chromium.org/chromedriver/downloads
