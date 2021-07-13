@@ -13,4 +13,4 @@ and put the file path here.
 DO NOT USE your local chrome.exe PATH !!!
 
 
-To run the program, simply type 'python badmintonfill.py' in your terminal.
+To run the program, simply fulfill all asked infomation in badmintonfill.py and type 'python badmintonfill.py' in your terminal.
