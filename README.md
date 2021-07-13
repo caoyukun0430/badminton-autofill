@@ -1,6 +1,6 @@
 This is Yukun's script to book badminton automatically in https://buchung.hsz.rwth-aachen.de/angebote/aktueller_zeitraum/_Badmintoncourt_Einzelterminbuchung.html
 
-NOTE: ONLY USE IT IN CASE YOU CAN MANUALLY GET A PLACE LIKE ME!!! :(
+NOTE: ONLY USE IT IN CASE YOU CAN NOT MANUALLY GET A PLACE LIKE ME!!! :(
 
 You need to preinstall python and selenium package before using the script
 * To install python on windows: https://www.python.org/downloads/
