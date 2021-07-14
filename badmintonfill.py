@@ -30,12 +30,12 @@ chromedriverpath = 'D:\ChromeDownloads\chromedriver_win32\chromedriver.exe'
 sex = 'male' # define sex = 'female' if needed!
 vorname = 'Yukun'
 name = 'Cao'
-address = 'Melatener strasse 159A'
+address = 'xxxxx'
 city = '52074 Aachen'
-stuID = '384159'
-tel = '015201095257'
-email = 'caoyukunk9999@126.com'
-card = 'DE81390500001073070938'
+stuID = 'xxxx'
+tel = 'xxxx'
+email = 'xxxx@xx.com'
+card = 'DExxxx'
 ##############################################################################
 
 # download the chromedriver.exe https://sites.google.com/a/chromium.org/chromedriver/downloads
