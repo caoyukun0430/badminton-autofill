@@ -1,11 +1,6 @@
 # you should do pip install selenium before import
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver import ActionChains
 
 ##############################################################################
 # All information needed to register are below
@@ -25,17 +20,17 @@ courtlocation_array_2100 = ['//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[10]/td[4]/inp
 # select the court and define courtlocation_array = xxx below!
 
 # MODIFY (and UNCOMMENT) below input lines before you run the programm!
-courtlocation_array = courtlocation_array_1945
+courtlocation_array = courtlocation_array_2100
 chromedriverpath = 'D:\ChromeDownloads\chromedriver_win32\chromedriver.exe'
 sex = 'male' # define sex = 'female' if needed!
 vorname = 'Yukun'
 name = 'Cao'
-address = 'xxxxx'
+address = 'xxx'
 city = '52074 Aachen'
-stuID = 'xxxx'
-tel = 'xxxx'
-email = 'xxxx@xx.com'
-card = 'DExxxx'
+stuID = 'xxx'
+tel = 'xxx'
+email = 'xxx@xxx.com'
+card = 'DExxx'
 ##############################################################################
 
 # download the chromedriver.exe https://sites.google.com/a/chromium.org/chromedriver/downloads
@@ -55,7 +50,7 @@ for i in range(0, len(courtlocation_array)):
             driver.find_element_by_xpath(courtlocation_array[i])
             break
         except:
-            driver.refresh
+            driver.refresh()
     driver.find_element_by_xpath(courtlocation_array[i]).click()
 
     # # important to switch your driver to NEW page opened! otherwise location fails
