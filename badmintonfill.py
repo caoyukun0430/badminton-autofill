@@ -111,8 +111,8 @@ for i in range(0, len(courtlocation_array)):
     # check the agree box
     driver.find_element_by_xpath(agreeboxloc).click()
 
-# # click the weiter button
-driver.find_element_by_xpath('//*[@id="bs_foot"]/div[3]/div[2]/input').click()
+    # # click the weiter button
+    driver.find_element_by_xpath('//*[@id="bs_foot"]/div[3]/div[2]/input').click()
 
-# # remember there is a info confirmation page to click
-# # driver.find_element_by_xpath('//*[@id="bs_foot"]/div[1]/div[2]/input').click()
+    # # remember there is a info confirmation page to click
+    # # driver.find_element_by_xpath('//*[@id="bs_foot"]/div[1]/div[2]/input').click()
