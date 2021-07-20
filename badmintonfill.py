@@ -33,12 +33,12 @@ date = "3" # meaning Wednesday, set date = "3" for Thrusday!
 sex = 'male' # define sex = 'female' if needed!
 vorname = 'Yukun'
 name = 'Cao'
-address = 'Melatener strasse 159A'
+address = 'xxx'
 city = '52074 Aachen'
-stuID = '384159'
-tel = '015201095257'
-email = 'caoyukunk9999@126.com'
-card = 'DE81390500001073070938'
+stuID = 'xxxx'
+tel = 'xxxx'
+email = 'xxxx'
+card = 'xxxx'
 ##############################################################################
 
 # download the chromedriver.exe https://sites.google.com/a/chromium.org/chromedriver/downloads
