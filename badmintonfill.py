@@ -6,31 +6,39 @@ from selenium.webdriver.support.ui import Select
 # All information needed to register are below
 # the two array stands for 4 courts in 19:45 and 21:00, select the timeslot you want
 # the program monitor all vacancy in 4 courts and register once available
-courtlocation_array_1945 = ['//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[9]/td[4]/input',
-'//*[@id="bs_pl3FE6C9AEA6F8"]/tbody/tr[9]/td[4]/input',
-'//*[@id="bs_pl3FE6C9AE4851"]/tbody/tr[9]/td[4]/input',
-'//*[@id="bs_pl3FE6C94D4C08"]/tbody/tr[9]/td[4]/input'
+# Wednesday:
+courtlocation_array_1830 = ['//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[8]/td[*]/input',
+'//*[@id="bs_pl3FE6C9AEA6F8"]/tbody/tr[8]/td[*]/input',
+'//*[@id="bs_pl3FE6C9AE4851"]/tbody/tr[8]/td[*]/input',
+'//*[@id="bs_pl3FE6C94D4C08"]/tbody/tr[8]/td[*]/input'
 ]
 
-courtlocation_array_2100 = ['//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[10]/td[4]/input',
-'//*[@id="bs_pl3FE6C9AEA6F8"]/tbody/tr[10]/td[4]/input',
-'//*[@id="bs_pl3FE6C9AE4851"]/tbody/tr[10]/td[4]/input',
-'//*[@id="bs_pl3FE6C94D4C08"]/tbody/tr[10]/td[4]/input'
+courtlocation_array_1945 = ['//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[9]/td[*]/input',
+'//*[@id="bs_pl3FE6C9AEA6F8"]/tbody/tr[9]/td[*]/input',
+'//*[@id="bs_pl3FE6C9AE4851"]/tbody/tr[9]/td[*]/input',
+'//*[@id="bs_pl3FE6C94D4C08"]/tbody/tr[9]/td[*]/input'
+]
+
+courtlocation_array_2100 = ['//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[10]/td[*]/input',
+'//*[@id="bs_pl3FE6C9AEA6F8"]/tbody/tr[10]/td[*]/input',
+'//*[@id="bs_pl3FE6C9AE4851"]/tbody/tr[10]/td[*]/input',
+'//*[@id="bs_pl3FE6C94D4C08"]/tbody/tr[10]/td[*]/input'
 ]
 # select the court and define courtlocation_array = xxx below!
 
 # MODIFY (and UNCOMMENT) below input lines before you run the programm!
-courtlocation_array = courtlocation_array_2100
+courtlocation_array = courtlocation_array_1945
 chromedriverpath = 'D:\ChromeDownloads\chromedriver_win32\chromedriver.exe'
+date = "3" # meaning Wednesday, set date = "3" for Thrusday!
 sex = 'male' # define sex = 'female' if needed!
 vorname = 'Yukun'
 name = 'Cao'
-address = 'xxx'
+address = 'Melatener strasse 159A'
 city = '52074 Aachen'
-stuID = 'xxx'
-tel = 'xxx'
-email = 'xxx@xxx.com'
-card = 'DExxx'
+stuID = '384159'
+tel = '015201095257'
+email = 'caoyukunk9999@126.com'
+card = 'DE81390500001073070938'
 ##############################################################################
 
 # download the chromedriver.exe https://sites.google.com/a/chromium.org/chromedriver/downloads
@@ -42,6 +50,12 @@ driver.get('https://buchung.hsz.rwth-aachen.de/angebote/aktueller_zeitraum/_Badm
 # driver.get('https://buchung.hsz.rwth-aachen.de/angebote/aktueller_zeitraum/_Beachvolleyballplatz_Einzelterminbuchung.html')
 # courtlocation = '//*[@id="bs_pl3FE63E5FAFBB"]/tbody/tr[10]/td[3]/input'
 # courtlocation_array = ['//*[@id="bs_pl3FE6C94D4C08"]/tbody/tr[7]/td[4]/input', '//*[@id="bs_pl3FE6C9AE4851"]/tbody/tr[7]/td[4]/input', '//*[@id="bs_pl3FE6C94D4C08"]/tbody/tr[5]/td[4]/input']
+
+for i in range(0, len(courtlocation_array)):
+    if date == "3":
+        courtlocation_array[i] = courtlocation_array[i].replace("td[*]", "td[3]")
+    elif date == "4":
+        courtlocation_array[i] = courtlocation_array[i].replace("td[*]", "td[4]")
 
 for i in range(0, len(courtlocation_array)):
     # it keeps refreshing the page until the buchen button is green
