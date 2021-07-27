@@ -1,6 +1,7 @@
 # you should do pip install selenium before import
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+import time
 
 ##############################################################################
 # All information needed to register are below
@@ -48,8 +49,8 @@ driver = webdriver.Chrome(chromedriverpath)
 driver.get('https://buchung.hsz.rwth-aachen.de/angebote/aktueller_zeitraum/_Badmintoncourt_Einzelterminbuchung.html')
 # tested with volleyball booking url
 # driver.get('https://buchung.hsz.rwth-aachen.de/angebote/aktueller_zeitraum/_Beachvolleyballplatz_Einzelterminbuchung.html')
-# courtlocation = '//*[@id="bs_pl3FE63E5FAFBB"]/tbody/tr[10]/td[3]/input'
 # courtlocation_array = ['//*[@id="bs_pl3FE6C94D4C08"]/tbody/tr[7]/td[4]/input', '//*[@id="bs_pl3FE6C9AE4851"]/tbody/tr[7]/td[4]/input', '//*[@id="bs_pl3FE6C94D4C08"]/tbody/tr[5]/td[4]/input']
+# courtlocation_array = ['//*[@id="bs_pl3FE63E5FAFBB"]/tbody/tr[7]/td[3]/input']
 
 for i in range(0, len(courtlocation_array)):
     if date == "3":
@@ -57,14 +58,17 @@ for i in range(0, len(courtlocation_array)):
     elif date == "4":
         courtlocation_array[i] = courtlocation_array[i].replace("td[*]", "td[4]")
 
+# move refresh out of the main loop
+# it keeps refreshing the page until the buchen button is green
+while True:
+    try:
+        driver.find_element_by_xpath(courtlocation_array[0])
+        break
+    except:
+        time.sleep(1)
+        driver.refresh()
+
 for i in range(0, len(courtlocation_array)):
-    # it keeps refreshing the page until the buchen button is green
-    while True:
-        try:
-            driver.find_element_by_xpath(courtlocation_array[i])
-            break
-        except:
-            driver.refresh()
     driver.find_element_by_xpath(courtlocation_array[i]).click()
 
     # # important to switch your driver to NEW page opened! otherwise location fails
@@ -75,7 +79,7 @@ for i in range(0, len(courtlocation_array)):
     driver.find_element_by_xpath('//*[@id="bs_form_main"]/div/div[2]/div[1]/label/div[2]/input').click()
 
     # # important to switch your driver to NEW page opened! otherwise location fails
-    window_after2 = driver.window_handles[-1]
+    window_after2 = driver.window_handles[1]
     driver.switch_to.window(window_after2)
     # HERE WE WILL FILL IN ALL INFORMATION
     if sex == 'male':
@@ -108,11 +112,14 @@ for i in range(0, len(courtlocation_array)):
     s1.select_by_index(1)
 
     # fill in all infomation
+    time.sleep(0.5)
     driver.find_element_by_xpath(vornameloc).send_keys(vorname)
     driver.find_element_by_xpath(nameloc).send_keys(name)
     driver.find_element_by_xpath(addressloc).send_keys(address)
+    time.sleep(0.5)
     driver.find_element_by_xpath(cityloc).send_keys(city)
     driver.find_element_by_xpath(stuIDloc).send_keys(stuID)
+    time.sleep(1)
     driver.find_element_by_xpath(emailloc).send_keys(email)
     driver.find_element_by_xpath(telloc).send_keys(tel)
     driver.find_element_by_xpath(cardloc).send_keys(card)
@@ -121,7 +128,7 @@ for i in range(0, len(courtlocation_array)):
     driver.find_element_by_xpath(agreeboxloc).click()
 
     # # click the weiter button
-    driver.find_element_by_xpath('//*[@id="bs_foot"]/div[3]/div[2]/input').click()
+    # driver.find_element_by_xpath('//*[@id="bs_foot"]/div[3]/div[2]/input').click()
 
     # # remember there is a info confirmation page to click
     # # driver.find_element_by_xpath('//*[@id="bs_foot"]/div[1]/div[2]/input').click()
