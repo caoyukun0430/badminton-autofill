@@ -5,7 +5,7 @@ import time
 
 ##############################################################################
 # All information needed to register are below
-# the two array stands for 4 courts in 19:45 and 21:00, select the timeslot you want
+# the three array stands for 4 courts in 18:30, 19:45 and 21:00, select the timeslot you want
 # the program monitor all vacancy in 4 courts and register once available
 # Wednesday:
 courtlocation_array_1830 = ['//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[8]/td[*]/input',
@@ -30,7 +30,7 @@ courtlocation_array_2100 = ['//*[@id="bs_pl3FE6C936AAFC"]/tbody/tr[10]/td[*]/inp
 # MODIFY (and UNCOMMENT) below input lines before you run the programm!
 courtlocation_array = courtlocation_array_1945
 chromedriverpath = 'D:\ChromeDownloads\chromedriver_win32\chromedriver.exe'
-date = "3" # meaning Wednesday, set date = "3" for Thrusday!
+date = "3" # meaning Wednesday, set date = "4" for Thrusday!
 sex = 'male' # define sex = 'female' if needed!
 vorname = 'Yukun'
 name = 'Cao'
